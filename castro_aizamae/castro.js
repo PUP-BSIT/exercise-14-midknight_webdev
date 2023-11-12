@@ -8,8 +8,6 @@ function commentButton () {
 
     let name = nameInput.value;
     let comment = commentInput.value;
-
-
     let li = document.createElement("li");
     let p = document.createElement("p");
     
