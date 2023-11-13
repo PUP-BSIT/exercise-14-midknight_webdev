@@ -40,15 +40,15 @@ function checkInput() {
 }
 
 function updateCommentList() {
-    const commentSection = document.getElementById("comment_section");
+    const commentSection = 
+        document.getElementById("comment_section");
     const newCommentsContainer = 
         document.getElementById('new_comments_container');
     const displayLatest = 
         document.getElementById('display_latest').checked;
 
-    commentsArray.sort((a, b) => (
-        displayLatest ? b.timestamp - a.timestamp : a.timestamp - b.timestamp
-    ));
+    commentsArray.sort((a, b) => (displayLatest ? b.timestamp - 
+        a.timestamp : a.timestamp - b.timestamp));
 
     const fragment = document.createDocumentFragment();
 
@@ -62,8 +62,8 @@ function updateCommentList() {
 
         const commentElement = document.createElement('div');
         commentElement.classList.add('comment-text');
-        const postingDate = 
-            new Date(commentObject.timestamp).toLocaleDateString();
+        const postingDate = new Date(commentObject.timestamp)
+            .toLocaleDateString();
         commentElement.textContent = `${commentObject.comment} 
             (Posted on: ${postingDate})`;
 

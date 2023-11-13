@@ -152,9 +152,12 @@
                     </div>
                 </div>
 
-                <div id="display_latest" onclick="updateCommentList()">
-                    Display Latest Comments
-                </div>
+                <input
+                type="checkbox"
+                id="display_latest"
+                onchange="updateCommentList()"
+                >   
+                <label for="display_latest">Display Latest Comments</label>
                 
                 <div id="new_comments_container"></div>        
             </div>
