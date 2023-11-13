@@ -163,61 +163,62 @@
         </div>
 		<div>
 			<h2>Additional Comments</h2>
-		<div>
-		    <ul id="comment_list">
-		    </ul>
+			<div>
+			    <ul id="comment_list">
+			    </ul>
+			</div>
+			<form class="center">
+			    <div>
+			        <div>
+			            <label for="user">Name:</label>
+			        </div>
+			        <div>
+			            <input
+			                type="text"
+			                name="user_name"
+			                id="user_name"
+			                placeholder="Juan Dela Cruz"
+			                onInput="onTextChange()" />
+			        </div>
+			    </div>
+			    <div>
+			        <div>
+			            <label for="user">Comment:</label>
+			        </div>
+			        <div>
+			            <input
+			                type="text"
+			                name="user_comment"
+			                id="user_comment"
+			                placeholder="Your comments here!"
+			                onInput="onTextChange()" />
+			        </div>
+			    </div>
+			    <div>
+			        <button
+			            name="comment"
+			            id="comment"
+			            type="button"
+			            disabled
+			        	> Comment!
+			        </button>
+			    </div>
+			    <div>
+			        <button 
+			            id="asc_comment"
+			            type="button"
+			            onclick="sortCommentsByDate('asc')"
+			        	>Sort Ascending
+			        </button>
+			        <button 
+			            id="desc_comment"
+			            type="button"
+			            onclick="sortCommentsByDate('desc')"
+			        	>Sort Descending
+			        </button>
+			    </div>
+			</form>
 		</div>
-		<form class="center">
-		    <div>
-		        <div>
-		            <label for="user">Name:</label>
-		        </div>
-		        <div>
-		            <input
-		                type="text"
-		                name="user_name"
-		                id="user_name"
-		                placeholder="Juan Dela Cruz"
-		                onInput="onTextChange()" />
-		        </div>
-		    </div>
-		    <div>
-		        <div>
-		            <label for="user">Comment:</label>
-		        </div>
-		        <div>
-		            <input
-		                type="text"
-		                name="user_comment"
-		                id="user_comment"
-		                placeholder="Your comments here!"
-		                onInput="onTextChange()" />
-		        </div>
-		    </div>
-		    <div>
-		        <button
-		            name="comment"
-		            id="comment"
-		            type="button"
-		            disabled
-		        > Comment!
-		        </button>
-		    </div>
-		    <div>
-		        <button 
-		            id="asc_comment"
-		            type="button"
-		            onclick="sortCommentsByDate('asc')"
-		        >Sort Ascending
-		        </button>
-		        <button 
-		            id="desc_comment"
-		            type="button"
-		            onclick="sortCommentsByDate('desc')"
-		        >Sort Descending
-		        </button>
-		    </div>
-		</form>
-	<script src="script.js"></script>
+		<script src="script.js"></script>
     </body>
 </html>
