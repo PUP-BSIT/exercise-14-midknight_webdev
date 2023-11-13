@@ -1,10 +1,11 @@
-function leavecomment() {
+let comments = [];
+
+function leaveComment() {
     let nameInput = document.getElementById("name_comments");
     let comment = document.getElementById("comment_box");
-    if(nameInput.value.length > 0 && comment.value.length > 0) {
+    if (nameInput.value.length > 0 && comment.value.length > 0) {
         document.getElementById("submit_button").disabled = false;
-    }
-
+    } 
     else {
         document.getElementById("submit_button").disabled = true;
     }
@@ -12,13 +13,17 @@ function leavecomment() {
 
 function addNewComment() {
     let name = document.getElementById("name_comments").value;
-    let comment = document.getElementById("comment_box").value;
+    let commentText = document.getElementById("comment_box").value;
 
-    if (name && comment) {
-        let commentSection = document.querySelector(".comments ul");
+    if (name && commentText) {
+        let commentSection = document.getElementById("comment_list");
         let newCommentItem = document.createElement("li");
+        let timestamp = new Date();
+        comments.push({ name, comment: commentText, timestamp });
+
         newCommentItem.innerHTML = `<strong>${name}</strong>
-                                    <p>${comment}</p>`;
+                                <p>${commentText}</p>
+                                <span class="timestamp">${timestamp}</span>`;
         commentSection.appendChild(newCommentItem);
 
         document.getElementById("name_comments").value = "";
@@ -26,4 +31,28 @@ function addNewComment() {
 
         document.getElementById("submit_button").disabled = true;
     }
+}
+
+function updateComments(order) {
+    let commentSection = document.getElementById("comment_list");
+    commentSection.innerHTML = '';
+
+    if (order === 'asc') {
+        comments.sort((a, b) => a.timestamp - b.timestamp);
+    } 
+    else if (order === 'desc') {
+        comments.sort((a, b) => b.timestamp - a.timestamp);
+    }
+
+    for (const comment of comments) {
+        let newCommentItem = document.createElement("li");
+        newCommentItem.innerHTML = `<strong>${comment.name}</strong>
+                        <p>${comment.comment}</p>
+                        <span class="timestamp">${comment.timestamp}</span>`;
+        commentSection.appendChild(newCommentItem);
+    }
+}
+
+function sortComments(order) {
+    updateComments(order);
 }
