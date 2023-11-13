@@ -1,31 +1,51 @@
-document.addEventListener("DOMContentLoaded", () => {
-    let userNameInput = document.getElementById("user_name");
-    let userCommentInput = document.getElementById("user_comment");
-    let addComment = document.getElementById("comment");
-    let commentList = document.getElementById("comment_list");
+let comments = [];
 
-    addComment.addEventListener("click", () => {
-        let name = userNameInput.value;
-        let comment = userCommentInput.value;
-
-        if (name.length > 0 && comment.length > 0) {
-            const listItem = document.createElement("li");
-            listItem.innerHTML = `<strong>Full Name:</strong> <p>${name}<p> 
-            <strong>Comment:</strong> <p>${comment}</p>`;
-            commentList.appendChild(listItem);
-
-            userNameInput.value = "";
-            userCommentInput.value = "";
-        }
+function displayComments() {
+    let commentList = document.getElementById('comment_list');
+    commentList.innerHTML = '';
+    comments.forEach(comment => {
+        const li = document.createElement('li');
+        li.innerText = 
+        `Name: ${comment.name}  
+        Comment: "${comment.text}"  
+        Date: ${comment.date.toDateString()}`;
+        commentList.appendChild(li);
     });
-});
+}
 
 function onTextChange() {
     let userName = document.getElementById("user_name");
     let userComment = document.getElementById("user_comment");
-    if (userName.value.length > 0 && userComment.value.length > 0){ 
+    if (userName.value.length && userComment.value.length ){ 
             document.getElementById("comment").disabled = false;
-    } 
-    else {
+    } else {
     document.getElementById("comment").disabled = true;
 }}
+
+function addComment() {
+    let userName = document.getElementById('user_name').value;
+    let userComment = document.getElementById('user_comment').value;
+
+    const newComment = {
+        name: userName,
+        text: userComment,
+        date: new Date()
+    };
+    comments.push(newComment);
+    displayComments();
+
+    document.getElementById('user_name').value = "";
+    document.getElementById('user_comment').value = "";
+}
+
+function sortCommentsByDate(sort) {
+    if (sort === 'asc') {
+        comments.sort((a, b) => a.date - b.date);
+    } else if (sort === 'desc') {
+        comments.sort((a, b) => b.date - a.date);
+    }
+    displayComments();
+}
+
+document.getElementById('comment').addEventListener('click', addComment);
+displayComments();
