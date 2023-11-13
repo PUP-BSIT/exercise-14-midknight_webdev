@@ -192,6 +192,26 @@
                 </ul>
             </li>
         </ul>
+        
+        <hr class="line-breaks3">
+    </div>
+
+    <div class="new-comments">
+        <h2>✴ New Comments ✴ </h2>
+        <button 
+            id="sort_asc_button" 
+            onclick="sortComments('asc')">
+            Sort Ascending
+        </button>
+
+        <button 
+            id="sort_desc_button" 
+            onclick="sortComments('desc')">
+            Sort Descending
+        </button>
+
+        <ul id="comment_list"></ul>
+
         <hr class="line-breaks3">
     </div>
 
@@ -203,7 +223,7 @@
             <input 
                 id="name_comments" 
                 type="text"
-                oninput="leavecomment()">
+                oninput="leaveComment()">
             <label for="comment">Comments: </label>
 
             <textarea 
@@ -212,7 +232,7 @@
                 row="5" 
                 cols="30"
                 placeholder="Leave your comments here..."
-                oninput="leavecomment()">
+                oninput="leaveComment()">
             </textarea>
 
             <button

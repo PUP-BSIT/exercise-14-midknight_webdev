@@ -187,6 +187,28 @@ body {
     color: #ad286b;
 }
 
+.new-comments h2 {
+    margin-left: 40px;
+    font-family: 'Dela Gothic One';
+    -webkit-text-stroke: 0.1px;
+    -webkit-text-stroke-color: #094862;
+    font-size: 30px;
+    color: #047992;
+}
+
+.new-comments li {
+    font-family: 'Inconsolata';
+    margin-left: 40px;
+    font-size: 20px;
+    color: #047992;
+}
+
+.new-comments p {
+    font-family: 'Josefin Sans';
+    font-size: 20px;
+    color: #ad286b;
+}
+
 .leave-comments {
     text-align: center;
     display: flex;
